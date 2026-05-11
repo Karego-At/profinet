@@ -140,7 +140,7 @@ Add additional PortSubmoduleItems to support additional ports
                   <VirtualSubmoduleItem ID="IDSM_150" SubmoduleIdentNumber="0x0150" MayIssueProcessAlarm="false">
                      <IOData>
                         <Input Consistency="All items consistency">
-                           <DataItem DataType="OctetString" Length="10" TextId="TOK_Input_DataItem_HW_Sensor"/>
+                           <DataItem DataType="VisibleString" Length="10" TextId="TOK_Input_DataItem_HW_Sensor"/>
                         </Input>
                      </IOData>
                      <ModuleInfo>
