@@ -152,6 +152,12 @@ typedef struct
 #define APP_GSDML_OUTPUT_DATA_ECHO_SIZE     APP_GSDML_INPUT_DATA_ECHO_SIZE
 #define APP_GSDML_ALARM_PAYLOAD_SIZE        1 /* bytes */
 
+
+// CUSTOM SENSOR
+#define APP_GSDML_MOD_ID_HW_SENSOR    0x00000050
+#define APP_GSDML_SUBMOD_ID_SENSOR    0x00000150
+#define APP_GSDML_INPUT_HW_SIZE      10 /* bytes */
+
 /**
  * Get module configuration from module ID
  * @param module_id  In: Module ID

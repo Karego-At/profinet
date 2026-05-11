@@ -59,7 +59,29 @@ static const app_gsdml_module_t module_echo = {
    .name = "Echo module",
    .submodules = {APP_GSDML_SUBMOD_ID_ECHO, 0}};
 
-/******************* Supported submodules ************************/
+
+
+// Custom Sensor
+
+static const app_gsdml_module_t module_hw_sensor = {
+   .id = APP_GSDML_MOD_ID_HW_SENSOR,
+   .name = "HelloWorld sensor module",
+   .submodules = {APP_GSDML_SUBMOD_ID_SENSOR, 0}
+};
+
+
+   /******************* Supported submodules ************************/
+
+
+static const app_gsdml_submodule_t submod_hw_sensor = {
+   .id = APP_GSDML_SUBMOD_ID_SENSOR,
+   .name = "HelloWorld sensor submodule",
+   .api = APP_GSDML_API,
+   .data_dir = PNET_DIR_INPUT,
+   .insize = APP_GSDML_INPUT_HW_SIZE,
+   .outsize = 0,
+   .parameters = { 0}};
+
 
 static const app_gsdml_submodule_t dap_indentity_1 = {
    .name = "DAP Identity 1",
@@ -157,7 +179,12 @@ static const app_gsdml_module_t * app_gsdml_modules[] = {
    &module_digital_in,
    &module_digital_out,
    &module_digital_in_out,
-   &module_echo};
+   &module_echo, 
+// Custom Sensor
+   &module_hw_sensor,
+
+
+};
 
 /** List of supported submodules */
 static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
@@ -173,6 +200,10 @@ static const app_gsdml_submodule_t * app_gsdml_submodules[] = {
    &submod_digital_inout,
 
    &submod_echo,
+
+// Custom Sensor
+   &submod_hw_sensor
+
 };
 
 /* List of supported parameters.

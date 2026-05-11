@@ -49,6 +49,14 @@ static uint8_t inputdata[APP_GSDML_INPUT_DATA_DIGITAL_SIZE] = {0};
 static uint8_t outputdata[APP_GSDML_OUTPUT_DATA_DIGITAL_SIZE] = {0};
 static uint8_t counter = 0;
 
+
+// Custom Sensor
+static uint8_t sensor_inputdata[APP_GSDML_INPUT_HW_SIZE] = {};
+
+
+
+
+
 /* Network endianness */
 static uint8_t echo_inputdata[APP_GSDML_INPUT_DATA_ECHO_SIZE] = {0};
 static uint8_t echo_outputdata[APP_GSDML_OUTPUT_DATA_ECHO_SIZE] = {0};
@@ -155,6 +163,19 @@ uint8_t * app_data_get_input_data (
       *iops = PNET_IOXS_GOOD;
       return echo_inputdata;
    }
+
+   if (submodule_id == APP_GSDML_SUBMOD_ID_SENSOR) 
+   {     
+
+      *size = APP_GSDML_INPUT_HW_SIZE;
+      *iops = PNET_IOXS_GOOD;
+
+      static const uint8_t raw[] = "HelloWorld";      
+      memcpy (sensor_inputdata, raw, *size);
+      return sensor_inputdata;
+
+   }
+
 
    /* Automated RT Tester scenario 2 - unsupported (sub)module */
    return NULL;
