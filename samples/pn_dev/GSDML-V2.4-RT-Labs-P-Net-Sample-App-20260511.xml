@@ -47,7 +47,20 @@ Replace the tag above with the one below to support shared device.
                   <ModuleItemRef ModuleItemTarget="IDM_40" AllowedInSlots="1..4"/>
 
 
-                  <ModuleItemRef ModuleItemTarget="HW_SENSOR_MOD" AllowedInSlots="1..8"/>  <!-- ← добавить -->
+
+
+
+
+
+
+                  <ModuleItemRef ModuleItemTarget="IDM_50" AllowedInSlots="1..8"/>   <!-- ← добавить -->
+
+
+
+
+
+
+
 
 
 
@@ -108,30 +121,40 @@ Add additional PortSubmoduleItems to support additional ports
 
 
 
-            <ModuleItem ID="HW_SENSOR_MOD" ModuleIdentNumber="0x00000050">
-              <ModuleInfo CategoryRef="Cat_Input">
-                <Name TextId="T_ID_MOD_HW_SENSOR"/>
-                <InfoText TextId="T_ID_MOD_HW_SENSOR_HELP"/>
-              </ModuleInfo>
-              <VirtualSubmoduleList>
-                <VirtualSubmoduleItem
-                    ID="HW_SENSOR_SUB"
-                    SubmoduleIdentNumber="0x00000150"
-                    Writeable_IM_Records="0 1 2 3">
-                  <IOData>
-                    <Input Consistency="All items consistency">
-                      <DataItem DataType="OctetString" Length="10" UseAsBits="false">
-                        <Name TextId="T_ID_SENSOR_DATA"/>
-                      </DataItem>
-                    </Input>
-                  </IOData>
-                  <ModuleInfo>
-                    <Name TextId="T_ID_SUB_HW_SENSOR"/>
-                    <InfoText TextId="T_ID_SUB_HW_SENSOR_HELP"/>
-                  </ModuleInfo>
-                </VirtualSubmoduleItem>
-              </VirtualSubmoduleList>
+            
+
+
+
+
+
+
+
+           <ModuleItem ID="IDM_50" ModuleIdentNumber="0x00000050">
+               <ModuleInfo>
+                  <Name TextId="TOK_Name_Module_HW_Sensor"/>
+                  <InfoText TextId="TOK_InfoText_Module_HW_Sensor"/>
+                  <HardwareRelease Value="1.0"/>
+                  <SoftwareRelease Value="1.0"/>
+               </ModuleInfo>
+               <VirtualSubmoduleList>
+                  <VirtualSubmoduleItem ID="IDSM_150" SubmoduleIdentNumber="0x0150" MayIssueProcessAlarm="false">
+                     <IOData>
+                        <Input Consistency="All items consistency">
+                           <DataItem DataType="OctetString" Length="10" TextId="TOK_Input_DataItem_HW_Sensor"/>
+                        </Input>
+                     </IOData>
+                     <ModuleInfo>
+                        <Name TextId="TOK_Name_Module_HW_Sensor"/>
+                        <InfoText TextId="TOK_InfoText_Module_HW_Sensor"/>
+                     </ModuleInfo>
+                  </VirtualSubmoduleItem>
+               </VirtualSubmoduleList>
             </ModuleItem>
+
+
+
+
+
 
 
 
@@ -348,12 +371,20 @@ Add additional PortSubmoduleItems to support additional ports
 
 
 
+
+
+
+
+
                
-               <Text TextId="T_ID_MOD_HW_SENSOR"      Value="HelloWorld Sensor Module"/>
-               <Text TextId="T_ID_MOD_HW_SENSOR_HELP" Value="Test module returning HelloWorld bytes"/>
-               <Text TextId="T_ID_SUB_HW_SENSOR"      Value="HelloWorld Sensor Submodule"/>
-               <Text TextId="T_ID_SUB_HW_SENSOR_HELP" Value="Returns the 10-byte ASCII string HelloWorld"/>
-               <Text TextId="T_ID_SENSOR_DATA"        Value="Sensor data (10 bytes)"/>
+               <Text TextId="TOK_Name_Module_HW_Sensor"      Value="HelloWorld Sensor Module"/>
+               <Text TextId="TOK_InfoText_Module_HW_Sensor"  Value="Test module returning HelloWorld bytes"/>
+               <Text TextId="TOK_Input_DataItem_HW_Sensor"   Value="Sensor data (10 bytes)"/>
+
+
+
+
+
 
 
 
