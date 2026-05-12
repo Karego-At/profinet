@@ -1,0 +1,9 @@
+# .dockerignore
+dockerfile
+.dockerignore
+.git
+.gitignore
+.gitmodules
+.gitattributes
+.git-blame-ignore-revs
+.clang-format
