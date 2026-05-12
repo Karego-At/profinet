@@ -3,8 +3,15 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-    git cmake build-essential libsnmp-dev iproute2 iputils-ping tshark util-linux  && rm -rf /var/lib/apt/lists/*
-    
+    git cmake build-essential libsnmp-dev iproute2 iputils-ping tshark util-linux \
+    wget gpg \
+    && rm -rf /var/lib/apt/lists/*
+
+# Установить актуальный CMake
+RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc | gpg --dearmor -o /usr/share/keyrings/kitware-archive-keyring.gpg \
+    && echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ jammy main' > /etc/apt/sources.list.d/kitware.list \
+    && apt-get update && apt-get install -y cmake \
+    && rm -rf /var/lib/apt/lists/*
 
 COPY ./ /p-net
 
