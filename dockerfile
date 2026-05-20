@@ -3,16 +3,25 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y \
-    git cmake build-essential libsnmp-dev iproute2 iputils-ping tshark util-linux \
-    wget gpg \
-    && rm -rf /var/lib/apt/lists/*
+    git curl build-essential libsnmp-dev iproute2 iputils-ping tshark util-linux 
+    # wget gpg \
+    # && rm -rf /var/lib/apt/lists/*
 
-# Установить актуальный CMake
-RUN wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc | gpg --dearmor -o /usr/share/keyrings/kitware-archive-keyring.gpg \
-    && echo 'deb [signed-by=/usr/share/keyrings/kitware-archive-keyring.gpg] https://apt.kitware.com/ubuntu/ jammy main' > /etc/apt/sources.list.d/kitware.list \
-    && apt-get update && apt-get install -y cmake \
-    && rm -rf /var/lib/apt/lists/*
- 
+WORKDIR /root
+RUN mkdir temp
+WORKDIR /root/temp
+RUN curl -OL https://github.com/Kitware/CMake/releases/download/v3.27.4/cmake-3.27.4.tar.gz
+RUN tar -xzvf cmake-3.27.4.tar.gz
+
+WORKDIR /root/temp/cmake-3.27.4
+RUN ./bootstrap -- -DCMAKE_BUILD_TYPE:STRING=Release
+RUN make -j4
+RUN make install
+
+WORKDIR /root
+RUN rm -rf temp
+
+# CMD ["cmake", "--version"]
 
 COPY ./ /p-net
 
@@ -27,7 +36,6 @@ WORKDIR /p-net/build
 CMD ["taskset", "-c", "11", "./pn_dev", "-vvvv", "-i", "eth0", "-b", "button1.txt", "-d", "button2.txt"]
 
 
-# WORKDIR /p-net/build
 
 
 
