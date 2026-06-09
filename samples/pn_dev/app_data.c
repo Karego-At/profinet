@@ -51,7 +51,7 @@ static uint8_t counter = 0;
 
 
 // Custom Sensor
-uint8_t sensor_inputdata[APP_GSDML_INPUT_HW_SIZE] = {};
+uint8_t sensor_inputdata[APP_GSDML_INPUT_CTF_SENSOR_SIZE] = {};
 
 
 
@@ -168,10 +168,10 @@ uint8_t * app_data_get_input_data (
    // HELLOWORLD
    if (submodule_id == APP_GSDML_SUBMOD_ID_SENSOR)
    {
-      *size = APP_GSDML_INPUT_HW_SIZE;
+      *size = APP_GSDML_INPUT_CTF_SENSOR_SIZE;
       *iops = PNET_IOXS_GOOD;
 
-      printf ("sensor_inputdata: %.*s\n", 10, sensor_inputdata);
+      // printf ("sensor_inputdata: %.*s\n", 10, sensor_inputdata);
       return sensor_inputdata;
    }
 

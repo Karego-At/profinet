@@ -78,7 +78,7 @@ static const app_gsdml_submodule_t submod_hw_sensor = {
    .name = "HelloWorld sensor submodule",
    .api = APP_GSDML_API,
    .data_dir = PNET_DIR_INPUT,
-   .insize = APP_GSDML_INPUT_HW_SIZE,
+   .insize = APP_GSDML_INPUT_CTF_SENSOR_SIZE,
    .outsize = 0,
    .parameters = { 0}};
 

@@ -140,8 +140,17 @@ Add additional PortSubmoduleItems to support additional ports
                   <VirtualSubmoduleItem ID="IDSM_150" SubmoduleIdentNumber="0x0150" MayIssueProcessAlarm="false">
                      <IOData>
                         <Input Consistency="All items consistency">
-                           <DataItem DataType="VisibleString" Length="10" TextId="TOK_Input_DataItem_HW_Sensor"/>
-                        </Input>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte0"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte1"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte2"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte3"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte4"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte5"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte6"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte7"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte8"/>
+   <DataItem DataType="Unsigned8" TextId="TOK_Input_HW_Byte9"/>
+</Input>
                      </IOData>
                      <ModuleInfo>
                         <Name TextId="TOK_Name_Module_HW_Sensor"/>
@@ -379,7 +388,19 @@ Add additional PortSubmoduleItems to support additional ports
                
                <Text TextId="TOK_Name_Module_HW_Sensor"      Value="HelloWorld Sensor Module"/>
                <Text TextId="TOK_InfoText_Module_HW_Sensor"  Value="Test module returning HelloWorld bytes"/>
-               <Text TextId="TOK_Input_DataItem_HW_Sensor"   Value="Sensor data (10 bytes)"/>
+               
+               
+               
+               <Text TextId="TOK_Input_HW_Byte0" Value="Sensor byte 0"/>
+               <Text TextId="TOK_Input_HW_Byte1" Value="Sensor byte 1"/>
+               <Text TextId="TOK_Input_HW_Byte2" Value="Sensor byte 2"/>
+               <Text TextId="TOK_Input_HW_Byte3" Value="Sensor byte 3"/>
+               <Text TextId="TOK_Input_HW_Byte4" Value="Sensor byte 4"/>
+               <Text TextId="TOK_Input_HW_Byte5" Value="Sensor byte 5"/>
+               <Text TextId="TOK_Input_HW_Byte6" Value="Sensor byte 6"/>
+               <Text TextId="TOK_Input_HW_Byte7" Value="Sensor byte 7"/>
+               <Text TextId="TOK_Input_HW_Byte8" Value="Sensor byte 8"/>
+               <Text TextId="TOK_Input_HW_Byte9" Value="Sensor byte 9"/>
 
 
 

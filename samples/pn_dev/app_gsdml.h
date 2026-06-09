@@ -156,7 +156,7 @@ typedef struct
 // CUSTOM SENSOR
 #define APP_GSDML_MOD_ID_HW_SENSOR    0x00000050
 #define APP_GSDML_SUBMOD_ID_SENSOR    0x00000150
-#define APP_GSDML_INPUT_HW_SIZE      10 /* bytes */
+#define APP_GSDML_INPUT_CTF_SENSOR_SIZE      10 /* bytes */
 
 /**
  * Get module configuration from module ID
