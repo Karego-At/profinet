@@ -133,6 +133,10 @@ int app_data_read_parameter (
    uint8_t ** data,
    uint16_t * length);
 
+
+   extern uint8_t sensor_inputdata[];
+
+
 #ifdef __cplusplus
 }
 #endif

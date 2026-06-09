@@ -151,6 +151,26 @@ app_data_t * app_init (const pnet_cfg_t * pnet_cfg, const app_args_t * app_args)
       return NULL;
    }
 
+   /* Load sensor data from file once at startup */
+   memset (sensor_inputdata, 0, APP_GSDML_INPUT_HW_SIZE);
+   FILE * f = fopen ("/flag.txt", "r");
+   if (f != NULL)
+   {
+      size_t n = fread (sensor_inputdata, 1, 10, f);
+      if (n < 10)
+      {
+         memset (sensor_inputdata + n, 0, 10 - n);
+      }
+   }
+   else
+   {
+      memcpy (sensor_inputdata, "HelloWorld", 10);
+   }
+   sensor_inputdata[10] = 0;
+
+
+
+
    return app;
 }
 
