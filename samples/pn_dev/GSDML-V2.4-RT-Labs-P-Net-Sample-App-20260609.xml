@@ -386,8 +386,8 @@ Add additional PortSubmoduleItems to support additional ports
 
 
                
-               <Text TextId="TOK_Name_Module_HW_Sensor"      Value="HelloWorld Sensor Module"/>
-               <Text TextId="TOK_InfoText_Module_HW_Sensor"  Value="Test module returning HelloWorld bytes"/>
+               <Text TextId="TOK_Name_Module_HW_Sensor"      Value="CTF Sensor Module"/>
+               <Text TextId="TOK_InfoText_Module_HW_Sensor"  Value="CTF module returning 10 bytes (String)"/>
                
                
                
