@@ -53,7 +53,7 @@ Replace the tag above with the one below to support shared device.
 
 
 
-                  <ModuleItemRef ModuleItemTarget="IDM_50" AllowedInSlots="1..4"/>   <!-- ← добавить -->
+                  <ModuleItemRef ModuleItemTarget="IDM_50" AllowedInSlots="1..4"/> 
 
 
 
